@@ -10,7 +10,11 @@ const ObjectId = require("mongodb").ObjectId;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.uzftm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+// DB_USER=simpleTour
+
+// DB_PASS=eyWzKhAllbJLJXPd
+
+const uri = `mongodb+srv://simpleTour:eyWzKhAllbJLJXPd@cluster0.uzftm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
