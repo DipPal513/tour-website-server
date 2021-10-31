@@ -52,7 +52,7 @@ async function run() {
       const result = await tourUser.insertOne(product);
       res.send(result);
   })
-    app.get("/myOrders/:email", async (req, res) => {
+    app.get("/allOrders/:email", async (req, res) => {
 
       const myOrder = await tourUser
         .find({
