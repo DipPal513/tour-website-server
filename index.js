@@ -47,11 +47,12 @@ async function run() {
       res.json(orders);
      
     })
-    app.post('/myOrders',async(req,res)=>{
-      const product = req.body;
-      const result = await tourUser.insertOne(product);
+    //post order
+    app.post("/placeOrder", async (req, res) => {
+      const orders = req.body;
+      const result = await tourUser.insertOne(orders);
       res.send(result);
-  })
+    });
     app.get("/myOrders/:email", async (req, res) => {
 
       const myOrder = await tourUser
