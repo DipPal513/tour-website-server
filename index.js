@@ -81,6 +81,9 @@ run().catch((err) => {
 app.get("/", (req, res) => {
   res.send("Hi from node js....");
 });
+app.get("/hi", (req, res) => {
+  res.send("eta to kaj kore");
+});
 app.listen(port, () => {
   console.log("server start at port ", port);
 });
