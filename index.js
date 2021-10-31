@@ -41,12 +41,17 @@ async function run() {
     });
     // my orders
 
-    app.get("/myOrders",async (req,res) => {
+    app.get("/allOrders",async (req,res) => {
       const cursor = tourUser.find({});
       const orders= await cursor.toArray();
       res.json(orders);
      
     })
+    app.post('/myOrders',async(req,res)=>{
+      const product = req.body;
+      const result = await tourUser.insertOne(product);
+      res.send(result);
+  })
     app.get("/myOrders/:email", async (req, res) => {
 
       const myOrder = await tourUser
@@ -85,9 +90,7 @@ run().catch((err) => {
 app.get("/", (req, res) => {
   res.send("Hi from node js....");
 });
-app.get("/hi", (req, res) => {
-  res.send("eta to kaj kore");
-});
+
 app.listen(port, () => {
   console.log("server start at port ", port);
 });
