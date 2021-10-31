@@ -41,7 +41,7 @@ async function run() {
     });
     // my orders
 
-    app.get("/allOrders",async (req,res) => {
+    app.get("/myOrders",async (req,res) => {
       const cursor = tourUser.find({});
       const orders= await cursor.toArray();
       res.json(orders);
@@ -52,7 +52,7 @@ async function run() {
       const result = await tourUser.insertOne(product);
       res.send(result);
   })
-    app.get("/allOrders/:email", async (req, res) => {
+    app.get("/myOrders/:email", async (req, res) => {
 
       const myOrder = await tourUser
         .find({
